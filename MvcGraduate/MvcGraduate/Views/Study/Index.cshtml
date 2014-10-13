@@ -1,0 +1,29 @@
+﻿@model MvcGraduate.Models.Students
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="study">
+    <div class="study_top">
+        <ul>
+            <li><a href="#">无信息</a></li>
+            <li><a href="#">无信息</a></li>
+            <li><a href="#">无信息</a></li>
+            <li class="gengduo"><a href="#">更多>></a></li>
+        </ul>
+    </div>
+    <div class="class_centre">
+        <div class="class_centre_left">
+            <ul>
+                <li><a href="#">查看班委</a></li>
+                <li><a href="#">任课老师</a></li>
+                <li><a href="#">课程资料</a></li>
+                <li><a href="#">我的同学</a></li>
+            </ul>
+        </div>
+        <div class="study_centre_right">2</div>
+    </div>
+    @RenderPage("~/Views/Shared/FriendlyLink.cshtml")
+</div>

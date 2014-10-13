@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,6 +140,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CSS\HomeCss.css" />
     <Content Include="Content\CSS\study.css" />
     <Content Include="Content\CSS\Teach.css" />
     <Content Include="Content\CSS\zhuye.css" />
@@ -261,6 +263,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\myJs\HomeJS.js" />
     <Content Include="Scripts\WeiYaFei\Home.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -275,6 +278,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Study\Index.cshtml" />
+    <Content Include="Views\Shared\FriendlyLink.cshtml" />
+    <Content Include="Views\Home\Schedule.cshtml" />
+    <Content Include="Views\Home\My_Art.cshtml" />
+    <Content Include="Views\Home\Share_Art.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

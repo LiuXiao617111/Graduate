@@ -6,14 +6,15 @@ using System.Web.Mvc;
 
 namespace MvcGraduate.Controllers
 {
-    public class HomeController : Controller
+    public class StudyController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Study/
 
         public ActionResult Index()
         {
             return View();
         }
+
     }
 }

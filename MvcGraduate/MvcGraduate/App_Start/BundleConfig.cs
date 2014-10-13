@@ -44,6 +44,9 @@ namespace MvcGraduate
             bundles.Add(new ScriptBundle("~/bundles/weiyafei").Include(
                 "~/Scripts/WeiYaFei/*.js"
                 ));
+            bundles.Add(new ScriptBundle("~/bundles/myJs").Include(
+            "~/Scripts/myJs/*.js"
+            ));
         }
     }
 }

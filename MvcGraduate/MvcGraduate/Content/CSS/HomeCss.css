@@ -1,0 +1,87 @@
+﻿*{
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+    /*课程表*/
+    .Scheduletable{
+	    vertical-align: middle;
+	    border-spacing: 0px;
+        float:left
+    }
+    .Scheduletable tr,td{
+        border:  1px solid #DCDCDC;
+	    width: 50px;
+	    overflow: hidden;
+	    height: 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 12px;
+	    cursor: default;
+    }
+	.onmouseoverScheduletableTd{
+		background-color: #4cff00;
+	}
+    /*课程表结束*/
+    /*分享文章*/
+    		.share_art{
+				width: 420px;
+				height: 675px;
+				height: inherit;
+				background: #FFFFFF;
+			}
+    		.my_art_detailed {
+			    position: relative;
+			    height: 220px;
+			    width: 100%;
+			    margin-top: 7px;
+			}
+		 	.my_art_detailed .line1{
+				position: relative;
+				top: 10px;
+				height: 20px;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				color: #4993b3;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 20px;
+				overflow: hidden;
+			}
+			.my_art_detailed .line2{
+				position: relative;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 110px;
+				top: 24px;
+				font-size: 16px;
+				line-height: 28px;
+				overflow: hidden;
+			}
+			.my_art_detailed .line3{
+				position: relative;
+				top: 40px;
+				width: 360px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 20px;
+				font-size: 14px;
+				color: #376dd9;
+				border-bottom: #d8d7d7 dashed 1px;
+				padding-bottom: 10px;
+			}
+            .my_art_detailed .line3 span{
+				float: right;
+			}
+			.my_art_detailed .line3 a{
+				font-size: 14px;
+				color: inherit;
+				text-decoration: none;
+				padding-right: 5px;
+			}
+			.my_art_detailed .line3 a:hover{
+				text-decoration: underline;
+				color: #676767;
+			}
+    /*分享文章结束*/
