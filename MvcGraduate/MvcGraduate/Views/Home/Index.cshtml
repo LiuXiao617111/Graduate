@@ -9,25 +9,23 @@
     @Scripts.Render("~/bundles/weiyafei")
     @Scripts.Render("~/bundles/myJs")
     <script>
+        //填充分享的文章
         $.post(
-        "@Url.Action("GetMyArt", "Home")",
-        { "id": 1208203301 },
-        function(data) {
-            $('#JS_myArtDiv').html(data);
-        });
+            "@Url.Action("GetMyArt", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_myArtDiv').html(data);
+            });
+        $.post(
+            "@Url.Action("GetShareArt", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_ShareArtDiv').html(data);
+            });
     </script>
 }
 
-<div id="zhuye">
-    <div class="zhuye_top">
-        <div style="clear:both;"></div>
-        <ul>
-            <li><a href="#">无信息</a></li>
-            <li><a href="#">无信息</a></li>
-            <li><a href="#">无信息</a></li>
-            <li class="gengduo"><a href="#">更多>></a></li>
-        </ul>
-    </div>
+
     <div class="zhuye_centre">
         <div class="zhuye_centre_left">
             <div class="zhuye_centre_left_1">
@@ -35,23 +33,43 @@
                     <a href="#"><img src="~/Images/article.png" id="article" /></a>
                     <ul>
                         <li><a href="#">我的文章</a></li>
-                        <li><a href="#">5</a></li>
+                        <li class="number"><a href="#">5</a></li>
                     </ul>
                 </div>
                 <div class="zhaopian">
-                    <a href="#">我的照片</a>
+                    <a href="#"><img src="~/Images/my_photo.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">我的照片</a></li>
+                        <li class="number"><a href="#">9</a></li>
+                    </ul>
                 </div>
                 <div class="xiaoxi">
-                    <a href="#">消息</a>
+                    <a href="#"><img src="~/Images/message.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">消息</a></li>
+                        <li class="number"><a href="#">0</a></li>
+                    </ul>
                 </div>
                 <div class="tiwen">
-                    <a href="#">提问</a>
+                    <a href="#"><img src="~/Images/ask.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">提问</a></li>
+                        <li class="number"><a href="#">10</a></li>
+                    </ul>
                 </div>
                 <div class="zuoye">
-                    <a href="#">电子作业</a>
+                    <a href="#"><img src="~/Images/homework.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">电子作业</a></li>
+                        <li class="number"><a href="#">14</a></li>
+                    </ul>
                 </div>
-                <div class="cailiao">
-                    <a href="#">课程资料</a>
+                <div class="ziliao">
+                    <a href="#"><img src="~/Images/kc_ziliao.png" id="article" /></a>
+                    <ul>
+                        <li><a href="#">课程资料</a></li>
+                        <li class="number"><a href="#">3</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="zhuye_centre_left_2">
@@ -73,16 +91,21 @@
         <div id="zhuye_centre_centre">
             <div id="zhuye_centre_centre_1">
                 <ul class="title">
+                    <li><img src="~/Images/title_bg1.png" /></li>
                     <li class="current"><a href="#">我的文章</a></li>
-                    <li><a href="#">分享文章</a></li>
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">分享文章</a></li>
                 </ul>
-                @RenderPage("~/Views/Home/Share_Art.cshtml")
                 <div id="JS_myArtDiv"></div>
+                <div id="JS_ShareArtDiv"></div>
             </div>
+
             <div id="zhuye_centre_centre_2">
                 <ul class="title">
+                    <li><img src="~/Images/title_bg1.png" /></li>
                     <li class="current"><a href="#">我的照片</a></li>
-                    <li><a href="#">分享照片</a></li>
+                    <li><img src="~/Images/title_bg1.png" /></li>
+                    <li class="current"><a href="#">分享照片</a></li>
                 </ul>
                 <div>
                     <ul>
@@ -114,6 +137,5 @@
             </div>
         </div>
     </div>
-    @RenderPage("~/Views/Shared/FriendlyLink.cshtml")
-</div>
+    
 

@@ -14,6 +14,17 @@ namespace MvcGraduate.Models
             var q = from c in db.Article
                     where c.WritingID == id
                     select c;
+            if (!q.Any())
+                return null;
+            return q;
+        }
+        public IEnumerable<Article> GetShareicle(int id)
+        {
+            var q = from c in db.Share_Article
+                    where c.SharedID == id
+                    select c.Article;
+            if (!q.Any())
+                return null;
             return q;
         }
     }

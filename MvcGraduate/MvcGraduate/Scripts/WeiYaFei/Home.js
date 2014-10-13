@@ -1,8 +1,11 @@
 ﻿$(function () {
-    $("#zhuye_centre_centre_1 .title li,#zhuye_centre_centre_2 .title li").mouseover(function () {
-        $(this).parent().children().removeClass("current");//去除样式
-        $(this).addClass("current");//添加样式
-        $(this).parent().siblings().hide();
-        $(this).parent().siblings().eq($(this).index()).show();
+    $("#zhuye_centre_centre_1 .title li:eq(0)").mouseover(function () {
+        $('#JS_ShareArtDiv').hide();
+        $('#JS_myArtDiv').show();
+    });
+    $("#zhuye_centre_centre_1 .title li:eq(2)").mouseover(function () {
+        $('#JS_myArtDiv').hide();
+        $('#JS_ShareArtDiv').show();
     });
 });
+//,#zhuye_centre_centre_2 .title li:eq(0),#zhuye_centre_centre_1 .title li:eq(2)

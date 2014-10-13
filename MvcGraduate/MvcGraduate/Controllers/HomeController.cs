@@ -24,5 +24,12 @@ namespace MvcGraduate.Controllers
             var res=homeFun.GetArticle(id);
             return PartialView(res);
         }
+        [HttpPost]
+        public PartialViewResult GetShareArt(int id = 1208203301)
+        {
+            var res = homeFun.GetShareicle(id);
+            var tt = res.ToList();
+            return PartialView(res);
+        }
     }
 }
