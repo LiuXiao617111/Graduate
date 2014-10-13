@@ -8,6 +8,14 @@
 @section Scripts { 
     @Scripts.Render("~/bundles/weiyafei")
     @Scripts.Render("~/bundles/myJs")
+    <script>
+        $.post(
+        "@Url.Action("GetMyArt", "Home")",
+        { "id": 1208203301 },
+        function(data) {
+            $('#JS_myArtDiv').html(data);
+        });
+    </script>
 }
 
 <div id="zhuye">
@@ -69,7 +77,7 @@
                     <li><a href="#">分享文章</a></li>
                 </ul>
                 @RenderPage("~/Views/Home/Share_Art.cshtml")
-                @RenderPage("~/Views/Home/My_Art.cshtml")
+                <div id="JS_myArtDiv"></div>
             </div>
             <div id="zhuye_centre_centre_2">
                 <ul class="title">

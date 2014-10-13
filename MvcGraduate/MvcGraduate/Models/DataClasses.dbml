@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GraduationProject" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=GraduationProject;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GraduationProjectConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Article" Member="Article">
-    <Type Name="Article">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WritingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Time" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ClickRate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Article_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="ID" Type="Share_Article" Cardinality="One" />
-      <Association Name="Students_Article" Member="Students" ThisKey="WritingID" OtherKey="ID" Type="Students" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.VacationType" Member="VacationType">
     <Type Name="VacationType">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -115,8 +104,8 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SharedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Article_Share_Article" Member="Article" ThisKey="ID" OtherKey="ID" Type="Article" IsForeignKey="true" />
       <Association Name="Students_Share_Article" Member="Students" ThisKey="ID" OtherKey="ID" Type="Students" IsForeignKey="true" />
+      <Association Name="Article_Share_Article" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Share_Images" Member="Share_Images">
@@ -137,7 +126,6 @@
       <Column Name="PhoneNum" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
       <Column Name="QQNum" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-      <Association Name="Students_Article" Member="Article" ThisKey="ID" OtherKey="WritingID" Type="Article" />
       <Association Name="Students_HomeWork" Member="HomeWork" ThisKey="ID" OtherKey="StudentID" Type="HomeWork" />
       <Association Name="Students_Images" Member="Images" ThisKey="ID" OtherKey="OwnerID" Type="Images" />
       <Association Name="Students_Notify" Member="Notify" ThisKey="ID" OtherKey="PublisherID" Type="Notify" />
@@ -148,6 +136,7 @@
       <Association Name="Students_Share_Images" Member="Share_Images" ThisKey="ID" OtherKey="StudentID" Type="Share_Images" />
       <Association Name="Students_SubjectMaterial" Member="SubjectMaterial" ThisKey="ID" OtherKey="UploadID" Type="SubjectMaterial" />
       <Association Name="Students_Vacation" Member="Vacation" ThisKey="ID" OtherKey="PeopleID" Type="Vacation" />
+      <Association Name="Students_Article" Member="Article" ThisKey="ID" OtherKey="WritingID" Type="Article" />
       <Association Name="Grade_Students" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
@@ -187,6 +176,18 @@
       <Column Name="Appendix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Students_Vacation" Member="Students" ThisKey="PeopleID" OtherKey="ID" Type="Students" IsForeignKey="true" />
       <Association Name="VacationType_Vacation" Member="VacationType" ThisKey="VacationTypeID" OtherKey="ID" Type="VacationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Article" Member="Article">
+    <Type Name="Article">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WritingID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ClickRate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Association Name="Article_Share_Article" Member="Share_Article" ThisKey="ID" OtherKey="ArticleID" Type="Share_Article" />
+      <Association Name="Students_Article" Member="Students" ThisKey="WritingID" OtherKey="ID" Type="Students" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

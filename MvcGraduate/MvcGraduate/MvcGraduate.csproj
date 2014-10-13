@@ -137,6 +137,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -281,8 +282,8 @@
     <Content Include="Views\Study\Index.cshtml" />
     <Content Include="Views\Shared\FriendlyLink.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
-    <Content Include="Views\Home\My_Art.cshtml" />
     <Content Include="Views\Home\Share_Art.cshtml" />
+    <Content Include="Views\Home\GetMyArt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

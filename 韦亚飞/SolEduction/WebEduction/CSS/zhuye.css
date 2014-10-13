@@ -13,34 +13,9 @@ ul,li{
 	height:1400px;
 	width:1125px;
 }
-#zhuye .zhuye_top{
-		margin:auto;
-		height:55px;
-		border-bottom:1px solid #D9D9D9;
-	}
-	
-	#zhuye .zhuye_top li{
-		float:left;
-		padding-left:40px;
-		margin-right:200px;
-		line-height:55px;
-	}
-	#zhuye .zhuye_top li a{
-		text-decoration:none;
-		color:#333333;
-		font-size:14px;
-	}
-	#zhuye .zhuye_top li.gengduo{
-		float:right;
-		margin-right:20px;
-		color:#1FA9A7;
-	}
-	#zhuye .zhuye_top li.gengduo a{
-		color:#1FA9A7;
-		text-decoration:none;
-		font-size:14px;
-	}
-	#zhuye .zhuye_centre{
+
+     /*中间*/
+	 .zhuye_centre{
 		margin:auto;
 		height:1130px;
 		margin-top:30px;
@@ -57,24 +32,43 @@ ul,li{
 				background:#FFF;
 				margin-bottom:30px;
 			}
-				.wenzhang{
+            .wenzhang{
 					width:160px;
 					height:72px;
 					background:#33CDE9;
-					float:left;
+                    float:left;
 					margin-bottom:5px;
 				}
                 #article
                 {
                     float: left;
                     margin-left:34px;
-                    margin-top:22px;
+                    margin-top:19px;
                 }
-                .wenzhang li
+                .zhuye_centre_left_1 li
                 {
                     float:left;
                     margin-left:30px;
+                    line-height:25px;
                 }
+                .zhuye_centre_left_1 li a
+                {
+                    float:left;
+                    text-decoration:none;
+                    color:#FFF;
+                    font-size:14px;
+                }
+                .zhuye_centre_left_1 li.number
+                {
+                    float: right;
+                    margin-right:15px;
+                }
+                    .zhuye_centre_left_1 li.number a
+                    {
+                        font-size: 22px;
+                        font-weight: 500;
+                        font-family:'Times New Roman';
+                    }
 				.zhaopian{
 					width:160px;
 					height:72px;
@@ -103,7 +97,7 @@ ul,li{
 					float:left;
 					margin-bottom:5px;
 				}
-				.cailiao{
+				.ziliao{
 					width:160px;
 					height:72px;
 					background:#65D59D;
@@ -173,6 +167,7 @@ ul,li{
 				height:762px;
 				background:#FFF;
 				margin-bottom:20px;
+                margin-top:10px;
 			}
             .title
             {
@@ -188,13 +183,13 @@ ul,li{
 				font-size:18px;
 				font-weight:900;
 				font-family:黑体;
-				background:#FFF;
-				color:#0088CC;
+				color:#FFF;
 			}
                 .title li.current
                 {
-                    border: 1px solid #4993B3;
-                }
+                    margin-top:30px;
+                    margin-left: -90px;
+                } 
 			#zhuye_centre_centre_2{
 				width:100%;
 				height:347px;
@@ -260,30 +255,3 @@ ul,li{
 				height:350px;
 				background:#FFF;
 			}
-	#zhuye .zhuye_foot{
-		margin:auto;
-		height:160px;
-		border-top:2px solid #4993B3;
-	}
-    #link
-    {
-        margin-top: 20px;
-        margin-left: 10px;
-    }
-    .zhuye_foot_link
-    {
-        height: 83px;
-        border: 1px solid #CDCDCD;
-    }
-        .zhuye_foot_link li
-        {
-            float: left;
-            margin-right:40px;
-            line-height:25px;
-        }
-            .zhuye_foot_link li a
-            {
-                text-decoration: none;
-                font-size: 15px;
-                font-weight: 600;
-            }
