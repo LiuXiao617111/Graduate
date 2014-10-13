@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -126,12 +127,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CSS\study.css" />
+    <Content Include="Content\CSS\Teach.css" />
+    <Content Include="Content\CSS\zhuye.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -188,6 +198,54 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\article.png" />
+    <Content Include="Images\ask.png" />
+    <Content Include="Images\banwei.png" />
+    <Content Include="Images\btn.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\dashiji.png" />
+    <Content Include="Images\gonggao.png" />
+    <Content Include="Images\head_photoBG85px.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\homework.png" />
+    <Content Include="Images\icon64_info.png" />
+    <Content Include="Images\kc_ziliao.png" />
+    <Content Include="Images\kebiao.png" />
+    <Content Include="Images\link.png" />
+    <Content Include="Images\li_point2.png" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\menu_bg.png" />
+    <Content Include="Images\message.png" />
+    <Content Include="Images\my_photo.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\page_bg.png" />
+    <Content Include="Images\page_logo.png" />
+    <Content Include="Images\stu_page_logo.png" />
+    <Content Include="Images\sys_message_ico.png" />
+    <Content Include="Images\teacher.png" />
+    <Content Include="Images\title_bg.png" />
+    <Content Include="Images\title_bg1.png" />
+    <Content Include="Images\tiwen.png" />
+    <Content Include="Images\upload_photo_btn.png" />
+    <Content Include="Images\write_articles2.png" />
+    <Content Include="Images\xiaoxi.png" />
+    <Content Include="Images\教师队伍1.png" />
+    <Content Include="Models\DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\Thumbs.db" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -203,6 +261,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\WeiYaFei\Home.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -215,14 +274,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

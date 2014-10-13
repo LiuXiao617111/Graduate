@@ -38,6 +38,12 @@ namespace MvcGraduate
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+            bundles.Add(new StyleBundle("~/Content/CSS/css").Include(
+                "~/Content/CSS/*.css"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/weiyafei").Include(
+                "~/Scripts/WeiYaFei/*.js"
+                ));
         }
     }
 }
