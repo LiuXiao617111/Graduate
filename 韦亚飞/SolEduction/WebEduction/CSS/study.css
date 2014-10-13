@@ -1,0 +1,121 @@
+﻿body{
+	font-size:12px;
+	border:none;
+	margin:0px;
+	padding:0px;
+	background:#EEEEEE;
+}
+ul,li{
+	list-style-type:none;
+}
+#study{
+	margin:auto;
+	height:1400px;
+	width:1125px;
+}
+#study .study_top{
+		margin:auto;
+		height:55px;
+		border-bottom:1px solid #D9D9D9;
+	}
+	
+	#study .study_top li{
+		float:left;
+		padding-left:40px;
+		margin-right:200px;
+		line-height:55px;
+	}
+	#study .study_top li a{
+		text-decoration:none;
+		color:#333333;
+		font-size:14px;
+	}
+	#study .study_top li.gengduo{
+		float:right;
+		margin-right:20px;
+		color:#1FA9A7;
+	}
+	#study .study_top li.gengduo a{
+		color:#1FA9A7;
+		text-decoration:none;
+		font-size:14px;
+	}
+#study .study_centre{
+		margin:auto;
+		height:1130px;
+		margin-top:30px;
+		margin-bottom:30px;
+	}
+    #study .class_centre{
+		margin:auto;
+		height:1130px;
+		margin-top:30px;
+		margin-bottom:30px;
+	}
+        .study_centre_left
+        {
+            height: 358px;
+            width: 201px;
+            background-color:#FFF;
+            float:left;
+        }
+         .class_centre_left
+        {
+            height: 200px;
+            width: 201px;
+            background-color:#FFF;
+            float:left;
+        }
+            .study_centre_left li
+            {
+                line-height: 48px;
+            }
+            .study_centre_left li a
+            {
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 600;
+                color: #998799;
+            }
+                .study_centre_left li a:hover
+                {
+                    text-decoration: underline;
+                    
+                }
+                /*我的班级*/
+              .class_centre_left
+              {
+                  height: 200px;
+                  width: 201px;
+                  background-color:#FFF;
+                  float:left;
+               }
+                .class_centre_left li
+                {
+                    line-height: 48px;
+                }
+            .class_centre_left li a
+                {
+                    text-decoration: none;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #998799;
+                }
+                .class_centre_left li a:hover
+                {
+                    text-decoration: underline;
+                    
+                }
+        .study_centre_right
+        {
+            width: 878px;
+            height:1100px;
+            margin-left:30px;
+            float:left;
+            background-color:#FFF;
+        }
+#study .study_foot{
+		margin:auto;
+		height:155px;
+		border-top:2px solid #4993B3;
+	}
