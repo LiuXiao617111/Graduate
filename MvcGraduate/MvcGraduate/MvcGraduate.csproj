@@ -219,6 +219,7 @@
     <Content Include="Images\kc_ziliao.png" />
     <Content Include="Images\kebiao.png" />
     <Content Include="Images\link.png" />
+    <Content Include="Images\li_point.png" />
     <Content Include="Images\li_point2.png" />
     <Content Include="Images\login.png" />
     <Content Include="Images\menu_bg.png" />
@@ -252,6 +253,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Properties\menu_bg.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -290,6 +292,7 @@
     <Content Include="Views\NotifyNews\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Interaction\Index.cshtml" />
+    <Content Include="Views\Home\GetNotify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

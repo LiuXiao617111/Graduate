@@ -27,5 +27,14 @@ namespace MvcGraduate.Models
                 return null;
             return q;
         }
+        public IEnumerable<Notify> GetNotify(int id = 1208203301)
+        {
+            var q = from c in db.Notify_People
+                    where c.NotifyPeopleID == id
+                    select c.Notify;
+            if (!q.Any())
+                return null;
+            return q;
+        }
     }
 }

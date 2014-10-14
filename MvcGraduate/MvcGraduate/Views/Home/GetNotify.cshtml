@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MvcGraduate.Models.Notify>
+    
+@if (Model != null)
+{
+    <ul class="NotifyUl">
+        @foreach (var item in Model)
+        {
+            <li><a src="#">@Html.DisplayFor(modelItem => item.Title)</a></li>
+        }
+    </ul>
+}

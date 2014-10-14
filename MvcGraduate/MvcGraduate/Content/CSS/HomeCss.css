@@ -28,6 +28,7 @@
 				height: 675px;
 				height: inherit;
 				background: #FFFFFF;
+    		    display: none;
 			}
     		.my_art_detailed {
 			    position: relative;
@@ -85,3 +86,45 @@
 				color: #676767;
 			}
     /*分享文章结束*/
+    /*导航的背景图片*/
+    .navigation_menu_bg {
+        background-image: url("../../Images/menu_bg.png");
+        background-repeat: no-repeat;
+        color: white !important;
+    }
+    /*导航的样式div*/
+    .navigation_centre_left div{
+        position: relative;
+        width: inherit;
+        height: 50px;
+        margin-top: 4px;
+        text-align: center;
+        border-bottom: #dddddd dashed 1px;
+        line-height: 50px;
+        color: #878787;
+        cursor: pointer;
+        font-size: 16px;
+        left: 0px;
+    }
+        /*通知ul*/
+        .NotifyUl {
+            position: static;
+            float: left;
+            top: 30px;
+            margin-top: 200px;
+            padding: 0px;
+        }
+		.NotifyUl li{
+		    font-family: "微软雅黑";
+		    list-style-type: none;
+		    height: 40px;
+		    line-height: 20px;
+		}
+		.NotifyUl li a{
+		    padding-left: 55px;
+		    background: url(../../Images/li_point.png) no-repeat;
+		    background-position: 30px 4px;
+		    color: #1E1E1E !important;
+		    text-decoration: none;
+		    cursor: pointer;
+		}

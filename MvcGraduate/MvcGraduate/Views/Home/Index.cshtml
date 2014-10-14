@@ -22,6 +22,13 @@
             function (data) {
                 $('#JS_ShareArtDiv').html(data);
             });
+        $.post(
+            "@Url.Action("GetNotify", "Home")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#JS_NotifyDiv').html(data);
+        });
+        
     </script>
 }
 
@@ -43,12 +50,10 @@
                         <li class="number"><a href="#">9</a></li>
                     </ul>
                 </div>
+                @*提问*@
                 <div class="xiaoxi">
                     <a href="#"><img src="~/Images/message.png" id="article" /></a>
-                    <ul>
-                        <li><a href="#">消息</a></li>
-                        <li class="number"><a href="#">0</a></li>
-                    </ul>
+                    <div id="JS_NotifyDiv"></div>
                 </div>
                 <div class="tiwen">
                     <a href="#"><img src="~/Images/ask.png" id="article" /></a>
