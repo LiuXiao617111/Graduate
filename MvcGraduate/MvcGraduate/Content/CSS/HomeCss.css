@@ -28,7 +28,6 @@
 				height: 675px;
 				height: inherit;
 				background: #FFFFFF;
-    		    display: none;
 			}
     		.my_art_detailed {
 			    position: relative;
@@ -128,3 +127,77 @@
 		    text-decoration: none;
 		    cursor: pointer;
 		}
+        /*Home下分享图片的样式*/
+        .HomeImageDiv{
+		 	position: absolute;
+			height: 260px;
+			width: 420px;
+		}
+		 	.photo_Block{
+		 		position: relative;
+				width: 115px;
+				height: 115px;
+				float: left;
+				margin: 0 0 18px 18px;
+				color: #515151;
+				font-size: 12px;
+				text-align: center;
+		 	}
+		 	.img{
+		 		position: relative;
+				width: 115px;
+				height: 80px;
+				overflow: hidden;
+				top: 5px;
+		 	}
+		 	    .img img{
+				    max-height: 80px
+		 	    }
+		 	.photo_Block_text{
+		 		position: absolute;
+				bottom: 10px;
+				width: 100%;
+		 	}
+		 	    .photo_Block_text a{
+		 		    text-decoration: none;
+				    color: #636363;
+		 	    }
+        /*老师和班委的大头贴*/
+            #JS_TeacherHomeDiv {
+                width: 100%;
+            }
+			.head_photos{
+				height: 100px;
+				width: 100px;
+                float: left;
+                margin: 0 0 18px 38px;
+                color: #515151;
+                font-size: 12px;    
+                text-align: center;
+			}
+			.user_head{
+				width: 85px;
+				height: 85px;
+				z-index: 1;
+				margin: 0px;
+			}
+			.user_head img{
+				height: 85px;
+				width: 85px;
+				margin-left: 12px;
+				vertical-align: middle;
+				border: 0;
+			}
+			.userinfo{
+				width: 120px;
+				height: 70px;
+				border: #EBEBEB solid 1px;
+				margin-top: -30px;
+				text-align: center;
+				overflow: hidden;
+			}
+			.userinfo div{
+				margin-top: 32px;
+				font-size: 14px;	
+				line-height: 18px;
+			}

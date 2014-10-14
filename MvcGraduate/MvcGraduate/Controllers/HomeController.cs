@@ -18,6 +18,7 @@ namespace MvcGraduate.Controllers
             return View();
         }
 
+        #region HttpPost
         [HttpPost]
         public PartialViewResult GetMyArt(int id = 1208203301)
         {
@@ -34,8 +35,26 @@ namespace MvcGraduate.Controllers
         public PartialViewResult GetNotify(int id = 1208203301)
         {
             var res = homeFun.GetNotify(id);
-            var tt = res.ToList();
             return PartialView(res);
         }
+        [HttpPost]
+        public PartialViewResult GetMyImages(int id=120803301)
+        {
+            var res = homeFun.GetmMyImages(id);
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetShareImages(int id = 120803301)
+        {
+            var res = homeFun.GetShareImages(id);
+            return PartialView(res);
+        }
+        [HttpPost]
+        public PartialViewResult GetTeacherImages(int id = 120803301)
+        {
+            var res = homeFun.GetTeacherImages(id);
+            return PartialView(res.ToList());
+        }
+        #endregion
     }
 }

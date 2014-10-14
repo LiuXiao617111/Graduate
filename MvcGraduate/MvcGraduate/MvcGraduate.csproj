@@ -141,6 +141,7 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeClass.cs" />
+    <Compile Include="Models\PeopleImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,7 +253,31 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Picture\myImage5.png" />
+    <Content Include="Picture\Thumbs.db" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Picture\e584ad4045e8efea08121b7f8c6bca25.gif" />
+    <Content Include="Picture\ec0ac3d2664b33e8872992346c8eb94e.gif" />
+    <Content Include="Picture\f7f787164d5fee9a7e8b21920a2a569c.gif" />
+    <Content Include="Picture\f96f211537671ad407f4b2643ab577b3.gif" />
+    <Content Include="Picture\iamge9.gif" />
+    <Content Include="Picture\image1.gif" />
+    <Content Include="Picture\image10.gif" />
+    <Content Include="Picture\image11.gif" />
+    <Content Include="Picture\image12.gif" />
+    <Content Include="Picture\image13.gif" />
+    <Content Include="Picture\image14.gif" />
+    <Content Include="Picture\image2.gif" />
+    <Content Include="Picture\image3.gif" />
+    <Content Include="Picture\image4.gif" />
+    <Content Include="Picture\image5.gif" />
+    <Content Include="Picture\image6.gif" />
+    <Content Include="Picture\image7.gif" />
+    <Content Include="Picture\image8.gif" />
+    <Content Include="Picture\myImage1.jpg" />
+    <Content Include="Picture\myImage2.png" />
+    <Content Include="Picture\myImage3.jpg" />
+    <Content Include="Picture\myImage4.jpg" />
     <Content Include="Properties\menu_bg.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -293,6 +318,9 @@
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Interaction\Index.cshtml" />
     <Content Include="Views\Home\GetNotify.cshtml" />
+    <Content Include="Views\Home\GetMyImages.cshtml" />
+    <Content Include="Views\Home\GetShareImages.cshtml" />
+    <Content Include="Views\Home\GetTeacherImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
