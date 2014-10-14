@@ -13,9 +13,16 @@ namespace MvcGraduate.Controllers
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ActionResult Index(int id=1208203301)
         {
-            return View();
+            var res = homeFun.GetStudent(id);
+            ViewBag.AricleCount = res.Article.Count;
+            ViewBag.ImageCount = res.Images.Count;
+            ViewBag.NotifyCount = homeFun.GetNotifyCount(id);
+            ViewBag.QuestionCount = res.Questions.Count;
+            ViewBag.HomeWorkCount = res.HomeWork.Count;
+            ViewBag.MaterialCount = homeFun.GetMaterialCount(id);
+            return View(res);
         }
 
         #region HttpPost
@@ -54,6 +61,12 @@ namespace MvcGraduate.Controllers
         {
             var res = homeFun.GetTeacherImages(id);
             return PartialView(res.ToList());
+        }
+        [HttpPost]
+        public PartialViewResult GetBanWeiImages(int id = 120803301)
+        {
+            var res = homeFun.GetBanWeiImages(id);
+            return PartialView("GetTeacherImages",res.ToList());
         }
         #endregion
     }

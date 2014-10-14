@@ -54,9 +54,6 @@ namespace MvcGraduate.Models
     partial void InsertNotify_People(Notify_People instance);
     partial void UpdateNotify_People(Notify_People instance);
     partial void DeleteNotify_People(Notify_People instance);
-    partial void InsertQuestions(Questions instance);
-    partial void UpdateQuestions(Questions instance);
-    partial void DeleteQuestions(Questions instance);
     partial void InsertSchoolNews(SchoolNews instance);
     partial void UpdateSchoolNews(SchoolNews instance);
     partial void DeleteSchoolNews(SchoolNews instance);
@@ -81,6 +78,9 @@ namespace MvcGraduate.Models
     partial void InsertTeachers(Teachers instance);
     partial void UpdateTeachers(Teachers instance);
     partial void DeleteTeachers(Teachers instance);
+    partial void InsertQuestions(Questions instance);
+    partial void UpdateQuestions(Questions instance);
+    partial void DeleteQuestions(Questions instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -177,14 +177,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Questions> Questions
-		{
-			get
-			{
-				return this.GetTable<Questions>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SchoolNews> SchoolNews
 		{
 			get
@@ -246,6 +238,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<Teachers>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Questions> Questions
+		{
+			get
+			{
+				return this.GetTable<Questions>();
 			}
 		}
 	}
@@ -1723,277 +1723,6 @@ namespace MvcGraduate.Models
 					else
 					{
 						this._NotifyPeopleID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Questions")]
-	public partial class Questions : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _StudentID;
-		
-		private string _Title;
-		
-		private string _Contents;
-		
-		private System.Nullable<System.DateTime> _Time;
-		
-		private string _ReplyContent;
-		
-		private System.Nullable<System.DateTime> _ReplyTime;
-		
-		private string _Appendix;
-		
-		private EntityRef<Students> _Students;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnStudentIDChanging(int value);
-    partial void OnStudentIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnContentsChanging(string value);
-    partial void OnContentsChanged();
-    partial void OnTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnTimeChanged();
-    partial void OnReplyContentChanging(string value);
-    partial void OnReplyContentChanged();
-    partial void OnReplyTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnReplyTimeChanged();
-    partial void OnAppendixChanging(string value);
-    partial void OnAppendixChanged();
-    #endregion
-		
-		public Questions()
-		{
-			this._Students = default(EntityRef<Students>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					if (this._Students.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
-		public int StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this.OnStudentIDChanging(value);
-					this.SendPropertyChanging();
-					this._StudentID = value;
-					this.SendPropertyChanged("StudentID");
-					this.OnStudentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(50)")]
-		public string Contents
-		{
-			get
-			{
-				return this._Contents;
-			}
-			set
-			{
-				if ((this._Contents != value))
-				{
-					this.OnContentsChanging(value);
-					this.SendPropertyChanging();
-					this._Contents = value;
-					this.SendPropertyChanged("Contents");
-					this.OnContentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Date")]
-		public System.Nullable<System.DateTime> Time
-		{
-			get
-			{
-				return this._Time;
-			}
-			set
-			{
-				if ((this._Time != value))
-				{
-					this.OnTimeChanging(value);
-					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyContent", DbType="NVarChar(50)")]
-		public string ReplyContent
-		{
-			get
-			{
-				return this._ReplyContent;
-			}
-			set
-			{
-				if ((this._ReplyContent != value))
-				{
-					this.OnReplyContentChanging(value);
-					this.SendPropertyChanging();
-					this._ReplyContent = value;
-					this.SendPropertyChanged("ReplyContent");
-					this.OnReplyContentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyTime", DbType="Date")]
-		public System.Nullable<System.DateTime> ReplyTime
-		{
-			get
-			{
-				return this._ReplyTime;
-			}
-			set
-			{
-				if ((this._ReplyTime != value))
-				{
-					this.OnReplyTimeChanging(value);
-					this.SendPropertyChanging();
-					this._ReplyTime = value;
-					this.SendPropertyChanged("ReplyTime");
-					this.OnReplyTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
-		public string Appendix
-		{
-			get
-			{
-				return this._Appendix;
-			}
-			set
-			{
-				if ((this._Appendix != value))
-				{
-					this.OnAppendixChanging(value);
-					this.SendPropertyChanging();
-					this._Appendix = value;
-					this.SendPropertyChanged("Appendix");
-					this.OnAppendixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Questions", Storage="_Students", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.Questions = null;
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.Questions = this;
-						this._ID = value.ID;
-					}
-					else
-					{
-						this._ID = default(int);
 					}
 					this.SendPropertyChanged("Students");
 				}
@@ -3533,8 +3262,6 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Notify_People> _Notify_People;
 		
-		private EntityRef<Questions> _Questions;
-		
 		private EntityRef<SchoolNews> _SchoolNews;
 		
 		private EntitySet<Share_Article> _Share_Article;
@@ -3546,6 +3273,8 @@ namespace MvcGraduate.Models
 		private EntitySet<Vacation> _Vacation;
 		
 		private EntitySet<Article> _Article;
+		
+		private EntitySet<Questions> _Questions;
 		
 		private EntityRef<Grade> _Grade;
 		
@@ -3577,13 +3306,13 @@ namespace MvcGraduate.Models
 			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
 			this._Notify = new EntitySet<Notify>(new Action<Notify>(this.attach_Notify), new Action<Notify>(this.detach_Notify));
 			this._Notify_People = new EntitySet<Notify_People>(new Action<Notify_People>(this.attach_Notify_People), new Action<Notify_People>(this.detach_Notify_People));
-			this._Questions = default(EntityRef<Questions>);
 			this._SchoolNews = default(EntityRef<SchoolNews>);
 			this._Share_Article = new EntitySet<Share_Article>(new Action<Share_Article>(this.attach_Share_Article), new Action<Share_Article>(this.detach_Share_Article));
 			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
 			this._SubjectMaterial = new EntitySet<SubjectMaterial>(new Action<SubjectMaterial>(this.attach_SubjectMaterial), new Action<SubjectMaterial>(this.detach_SubjectMaterial));
 			this._Vacation = new EntitySet<Vacation>(new Action<Vacation>(this.attach_Vacation), new Action<Vacation>(this.detach_Vacation));
 			this._Article = new EntitySet<Article>(new Action<Article>(this.attach_Article), new Action<Article>(this.detach_Article));
+			this._Questions = new EntitySet<Questions>(new Action<Questions>(this.attach_Questions), new Action<Questions>(this.detach_Questions));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -3804,35 +3533,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Questions", Storage="_Questions", ThisKey="ID", OtherKey="ID", IsUnique=true, IsForeignKey=false)]
-		public Questions Questions
-		{
-			get
-			{
-				return this._Questions.Entity;
-			}
-			set
-			{
-				Questions previousValue = this._Questions.Entity;
-				if (((previousValue != value) 
-							|| (this._Questions.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Questions.Entity = null;
-						previousValue.Students = null;
-					}
-					this._Questions.Entity = value;
-					if ((value != null))
-					{
-						value.Students = this;
-					}
-					this.SendPropertyChanged("Questions");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_SchoolNews", Storage="_SchoolNews", ThisKey="ID", OtherKey="ID", IsUnique=true, IsForeignKey=false)]
 		public SchoolNews SchoolNews
 		{
@@ -3924,6 +3624,19 @@ namespace MvcGraduate.Models
 			set
 			{
 				this._Article.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Questions", Storage="_Questions", ThisKey="ID", OtherKey="StudentID")]
+		public EntitySet<Questions> Questions
+		{
+			get
+			{
+				return this._Questions;
+			}
+			set
+			{
+				this._Questions.Assign(value);
 			}
 		}
 		
@@ -4084,6 +3797,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Article(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_Questions(Questions entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_Questions(Questions entity)
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
@@ -4321,6 +4046,277 @@ namespace MvcGraduate.Models
 		{
 			this.SendPropertyChanging();
 			entity.Teachers = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Questions")]
+	public partial class Questions : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _StudentID;
+		
+		private string _Title;
+		
+		private string _Contents;
+		
+		private System.Nullable<System.DateTime> _Time;
+		
+		private string _ReplyContent;
+		
+		private System.Nullable<System.DateTime> _ReplyTime;
+		
+		private string _Appendix;
+		
+		private EntityRef<Students> _Students;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnStudentIDChanging(int value);
+    partial void OnStudentIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnContentsChanging(string value);
+    partial void OnContentsChanged();
+    partial void OnTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeChanged();
+    partial void OnReplyContentChanging(string value);
+    partial void OnReplyContentChanged();
+    partial void OnReplyTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnReplyTimeChanged();
+    partial void OnAppendixChanging(string value);
+    partial void OnAppendixChanged();
+    #endregion
+		
+		public Questions()
+		{
+			this._Students = default(EntityRef<Students>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(50)")]
+		public string Contents
+		{
+			get
+			{
+				return this._Contents;
+			}
+			set
+			{
+				if ((this._Contents != value))
+				{
+					this.OnContentsChanging(value);
+					this.SendPropertyChanging();
+					this._Contents = value;
+					this.SendPropertyChanged("Contents");
+					this.OnContentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Date")]
+		public System.Nullable<System.DateTime> Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyContent", DbType="NVarChar(50)")]
+		public string ReplyContent
+		{
+			get
+			{
+				return this._ReplyContent;
+			}
+			set
+			{
+				if ((this._ReplyContent != value))
+				{
+					this.OnReplyContentChanging(value);
+					this.SendPropertyChanging();
+					this._ReplyContent = value;
+					this.SendPropertyChanged("ReplyContent");
+					this.OnReplyContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyTime", DbType="Date")]
+		public System.Nullable<System.DateTime> ReplyTime
+		{
+			get
+			{
+				return this._ReplyTime;
+			}
+			set
+			{
+				if ((this._ReplyTime != value))
+				{
+					this.OnReplyTimeChanging(value);
+					this.SendPropertyChanging();
+					this._ReplyTime = value;
+					this.SendPropertyChanged("ReplyTime");
+					this.OnReplyTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
+		public string Appendix
+		{
+			get
+			{
+				return this._Appendix;
+			}
+			set
+			{
+				if ((this._Appendix != value))
+				{
+					this.OnAppendixChanging(value);
+					this.SendPropertyChanging();
+					this._Appendix = value;
+					this.SendPropertyChanged("Appendix");
+					this.OnAppendixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Questions", Storage="_Students", ThisKey="StudentID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Questions.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Questions.Add(this);
+						this._StudentID = value.ID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
