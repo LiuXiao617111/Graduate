@@ -22,6 +22,7 @@
       <Column Name="FacultyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Grade_Grades_Teachers" Member="Grades_Teachers" ThisKey="ID" OtherKey="GradeID" Type="Grades_Teachers" />
       <Association Name="Grade_Students" Member="Students" ThisKey="ID" OtherKey="GradeID" Type="Students" />
+      <Association Name="Grade_TimeTable" Member="TimeTable" ThisKey="ID" OtherKey="GradeID" Type="TimeTable" />
       <Association Name="Faculty_Grade" Member="Faculty" ThisKey="FacultyID" OtherKey="ID" Type="Faculty" IsForeignKey="true" />
     </Type>
   </Table>
@@ -191,6 +192,21 @@
       <Column Name="ReplyTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Appendix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Students_Questions" Member="Students" ThisKey="StudentID" OtherKey="ID" Type="Students" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeTable" Member="TimeTable">
+    <Type Name="TimeTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Week" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="GradeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="One" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Two" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Three" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Four" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Five" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Six" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Seven" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Grade_TimeTable" Member="Grade" ThisKey="GradeID" OtherKey="ID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

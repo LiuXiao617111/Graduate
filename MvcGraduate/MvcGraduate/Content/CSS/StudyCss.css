@@ -1,0 +1,54 @@
+﻿/*右边的表格*/			
+.frame_main {
+	width: 878px;
+	height: 680px;
+	background: #FFFFFF;
+}
+	.frame_main ul {
+		list-style: none;
+	}
+	    .frame_title_line {
+		    height: 60px;
+		    margin-bottom: 15px;
+	    }
+	        .frame_title {
+		        height: 33px;
+		        width: 400px;
+		        color: #4993b3;
+		        font-weight: 600;
+		        line-height: 33px;
+		        margin: 30px 0 0 50px;
+		        font-size: 18px;
+		        float: left;
+		        text-align: left;
+		        cursor: default;
+	        }
+	    .page_line {
+		    height: 35px;
+		    margin-bottom: 5px;
+		    text-align: right;
+		    padding-right: 60px;
+	    }
+	    .frame_main table {
+		    display: table;
+		    border: #dcdcdc solid 1px;
+		    border-spacing: 2px;
+		    position: relative;
+		    width: 760px;
+		    margin-left: 50px;
+		    border-collapse: collapse;
+	    }
+		    .detaile_line table .td_head td {
+			    background: #4993b3;
+			    color: #FFFFFF;
+			    font-size: 17px;
+			    line-height: 38px;
+			    cursor: default;
+		    }
+		    .frame_main tr td{
+			    overflow: hidden;
+			    height: 40px;
+			    border: #dcdcdc solid 1px;
+			    text-align: center;
+			    font-size: 14px;
+		    }

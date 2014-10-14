@@ -81,6 +81,9 @@ namespace MvcGraduate.Models
     partial void InsertQuestions(Questions instance);
     partial void UpdateQuestions(Questions instance);
     partial void DeleteQuestions(Questions instance);
+    partial void InsertTimeTable(TimeTable instance);
+    partial void UpdateTimeTable(TimeTable instance);
+    partial void DeleteTimeTable(TimeTable instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -246,6 +249,14 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<Questions>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TimeTable> TimeTable
+		{
+			get
+			{
+				return this.GetTable<TimeTable>();
 			}
 		}
 	}
@@ -522,6 +533,8 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<Students> _Students;
 		
+		private EntitySet<TimeTable> _TimeTable;
+		
 		private EntityRef<Faculty> _Faculty;
 		
     #region 可扩展性方法定义
@@ -540,6 +553,7 @@ namespace MvcGraduate.Models
 		{
 			this._Grades_Teachers = new EntitySet<Grades_Teachers>(new Action<Grades_Teachers>(this.attach_Grades_Teachers), new Action<Grades_Teachers>(this.detach_Grades_Teachers));
 			this._Students = new EntitySet<Students>(new Action<Students>(this.attach_Students), new Action<Students>(this.detach_Students));
+			this._TimeTable = new EntitySet<TimeTable>(new Action<TimeTable>(this.attach_TimeTable), new Action<TimeTable>(this.detach_TimeTable));
 			this._Faculty = default(EntityRef<Faculty>);
 			OnCreated();
 		}
@@ -634,6 +648,19 @@ namespace MvcGraduate.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_TimeTable", Storage="_TimeTable", ThisKey="ID", OtherKey="GradeID")]
+		public EntitySet<TimeTable> TimeTable
+		{
+			get
+			{
+				return this._TimeTable;
+			}
+			set
+			{
+				this._TimeTable.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Faculty_Grade", Storage="_Faculty", ThisKey="FacultyID", OtherKey="ID", IsForeignKey=true)]
 		public Faculty Faculty
 		{
@@ -707,6 +734,18 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Students(Students entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grade = null;
+		}
+		
+		private void attach_TimeTable(TimeTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grade = this;
+		}
+		
+		private void detach_TimeTable(TimeTable entity)
 		{
 			this.SendPropertyChanging();
 			entity.Grade = null;
@@ -4295,6 +4334,325 @@ namespace MvcGraduate.Models
 						this._StudentID = default(int);
 					}
 					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TimeTable")]
+	public partial class TimeTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Week;
+		
+		private int _GradeID;
+		
+		private string _One;
+		
+		private string _Two;
+		
+		private string _Three;
+		
+		private string _Four;
+		
+		private string _Five;
+		
+		private string _Six;
+		
+		private string _Seven;
+		
+		private EntityRef<Grade> _Grade;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnWeekChanging(string value);
+    partial void OnWeekChanged();
+    partial void OnGradeIDChanging(int value);
+    partial void OnGradeIDChanged();
+    partial void OnOneChanging(string value);
+    partial void OnOneChanged();
+    partial void OnTwoChanging(string value);
+    partial void OnTwoChanged();
+    partial void OnThreeChanging(string value);
+    partial void OnThreeChanged();
+    partial void OnFourChanging(string value);
+    partial void OnFourChanged();
+    partial void OnFiveChanging(string value);
+    partial void OnFiveChanged();
+    partial void OnSixChanging(string value);
+    partial void OnSixChanged();
+    partial void OnSevenChanging(string value);
+    partial void OnSevenChanged();
+    #endregion
+		
+		public TimeTable()
+		{
+			this._Grade = default(EntityRef<Grade>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Week", DbType="NChar(10)")]
+		public string Week
+		{
+			get
+			{
+				return this._Week;
+			}
+			set
+			{
+				if ((this._Week != value))
+				{
+					this.OnWeekChanging(value);
+					this.SendPropertyChanging();
+					this._Week = value;
+					this.SendPropertyChanged("Week");
+					this.OnWeekChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeID", DbType="Int NOT NULL")]
+		public int GradeID
+		{
+			get
+			{
+				return this._GradeID;
+			}
+			set
+			{
+				if ((this._GradeID != value))
+				{
+					if (this._Grade.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGradeIDChanging(value);
+					this.SendPropertyChanging();
+					this._GradeID = value;
+					this.SendPropertyChanged("GradeID");
+					this.OnGradeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_One", DbType="NChar(10)")]
+		public string One
+		{
+			get
+			{
+				return this._One;
+			}
+			set
+			{
+				if ((this._One != value))
+				{
+					this.OnOneChanging(value);
+					this.SendPropertyChanging();
+					this._One = value;
+					this.SendPropertyChanged("One");
+					this.OnOneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Two", DbType="NChar(10)")]
+		public string Two
+		{
+			get
+			{
+				return this._Two;
+			}
+			set
+			{
+				if ((this._Two != value))
+				{
+					this.OnTwoChanging(value);
+					this.SendPropertyChanging();
+					this._Two = value;
+					this.SendPropertyChanged("Two");
+					this.OnTwoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Three", DbType="NChar(10)")]
+		public string Three
+		{
+			get
+			{
+				return this._Three;
+			}
+			set
+			{
+				if ((this._Three != value))
+				{
+					this.OnThreeChanging(value);
+					this.SendPropertyChanging();
+					this._Three = value;
+					this.SendPropertyChanged("Three");
+					this.OnThreeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Four", DbType="NChar(10)")]
+		public string Four
+		{
+			get
+			{
+				return this._Four;
+			}
+			set
+			{
+				if ((this._Four != value))
+				{
+					this.OnFourChanging(value);
+					this.SendPropertyChanging();
+					this._Four = value;
+					this.SendPropertyChanged("Four");
+					this.OnFourChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Five", DbType="NChar(10)")]
+		public string Five
+		{
+			get
+			{
+				return this._Five;
+			}
+			set
+			{
+				if ((this._Five != value))
+				{
+					this.OnFiveChanging(value);
+					this.SendPropertyChanging();
+					this._Five = value;
+					this.SendPropertyChanged("Five");
+					this.OnFiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Six", DbType="NChar(10)")]
+		public string Six
+		{
+			get
+			{
+				return this._Six;
+			}
+			set
+			{
+				if ((this._Six != value))
+				{
+					this.OnSixChanging(value);
+					this.SendPropertyChanging();
+					this._Six = value;
+					this.SendPropertyChanged("Six");
+					this.OnSixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seven", DbType="NChar(10)")]
+		public string Seven
+		{
+			get
+			{
+				return this._Seven;
+			}
+			set
+			{
+				if ((this._Seven != value))
+				{
+					this.OnSevenChanging(value);
+					this.SendPropertyChanging();
+					this._Seven = value;
+					this.SendPropertyChanged("Seven");
+					this.OnSevenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_TimeTable", Storage="_Grade", ThisKey="GradeID", OtherKey="ID", IsForeignKey=true)]
+		public Grade Grade
+		{
+			get
+			{
+				return this._Grade.Entity;
+			}
+			set
+			{
+				Grade previousValue = this._Grade.Entity;
+				if (((previousValue != value) 
+							|| (this._Grade.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Grade.Entity = null;
+						previousValue.TimeTable.Remove(this);
+					}
+					this._Grade.Entity = value;
+					if ((value != null))
+					{
+						value.TimeTable.Add(this);
+						this._GradeID = value.ID;
+					}
+					else
+					{
+						this._GradeID = default(int);
+					}
+					this.SendPropertyChanged("Grade");
 				}
 			}
 		}

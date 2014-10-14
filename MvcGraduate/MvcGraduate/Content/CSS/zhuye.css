@@ -255,3 +255,73 @@ ul,li{
 				height:350px;
 				background:#FFF;
 			}
+
+            /*主页右边最下面提问的css*/
+                .tiwen_2
+                {
+                    float:left;
+                    margin-top: 15px;
+                }
+                
+                .zhuye_centre_right_4_tiwen
+                {
+                    height: 260px;
+                    float:left;
+                    margin-top:15px;
+                    margin-left:20px;
+                    width: 290px;
+                }
+                .zhuye_centre_right_4_tiwen_kuang
+                {
+                    height: 80px;
+                    width: 275px;
+                    float:left;
+                    margin-left:5px;
+                    background-color:#FFF;
+                    border:1px solid #CCCCCC;
+                }
+                .zhuye_centre_right_4_tiwen_2
+                {
+                    height: 25px;
+                    width: 60px;
+                    text-align:center;
+                    line-height:25px;
+                    margin-top:10px;
+                    float: right;
+                    margin-right: 15px;
+                    background:#4993B3;
+                    color:#FFF;
+                }
+                .zhuye_centre_right_4_tiwen ul
+                {
+                    margin-top:135px;
+                }
+                .zhuye_centre_right_4_tiwen li
+                {
+                    line-height: 30px;
+                    list-style-type:disc;
+                }
+                .zhuye_centre_right_4_tiwen li a
+                {
+                    color:black;
+                    font-size:16px;
+                    text-decoration:none;
+                }
+                    .zhuye_centre_right_4_tiwen li.newtiwen
+                    {
+                        list-style-type: none;
+                    }
+                     .zhuye_centre_right_4_tiwen li.newtiwen a
+                    {
+                        color:#49B0D8;
+                        font-size:12px;
+                        font-weight:600;
+                    }
+                        .zhuye_centre_right_4_tiwen li.newtiwen a:hover
+                        {
+                            text-decoration: none;
+                        }
+                    .zhuye_centre_right_4_tiwen li a:hover
+                    {
+                        text-decoration: underline;
+                    }

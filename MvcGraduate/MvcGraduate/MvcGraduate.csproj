@@ -142,12 +142,14 @@
     </Compile>
     <Compile Include="Models\HomeClass.cs" />
     <Compile Include="Models\PeopleImage.cs" />
+    <Compile Include="Models\StudyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\demo.css" />
     <Content Include="Content\CSS\HomeCss.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
+    <Content Include="Content\CSS\StudyCss.css" />
     <Content Include="Content\CSS\zhuye.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -321,6 +323,8 @@
     <Content Include="Views\Home\GetMyImages.cshtml" />
     <Content Include="Views\Home\GetShareImages.cshtml" />
     <Content Include="Views\Home\GetTeacherImages.cshtml" />
+    <Content Include="Views\Study\GetHomeWork.cshtml" />
+    <Content Include="Views\Study\GetTimeTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
