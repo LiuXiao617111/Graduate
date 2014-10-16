@@ -59,14 +59,14 @@ namespace MvcGraduate.Controllers
         [HttpPost]
         public PartialViewResult GetTeacherImages(int id = 120803301)
         {
-            var res = homeFun.GetTeacherImages(id);
-            return PartialView(res.ToList());
+            var res = homeFun.GetTeacher(id);
+            return PartialView("GetPeople",res.ToList());
         }
         [HttpPost]
-        public PartialViewResult GetBanWeiImages(int id = 120803301)
+        public PartialViewResult GetBanWei(int id = 120803301)
         {
-            var res = homeFun.GetBanWeiImages(id);
-            return PartialView("GetTeacherImages",res.ToList());
+            var res = homeFun.GetBanWei(id);
+            return PartialView("GetPeople",res.ToList());
         }
         #endregion
     }

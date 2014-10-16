@@ -4,13 +4,51 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts {
+@Scripts.Render("~/bundles/weiyafei")
+@Scripts.Render("~/bundles/myJs")
+<script>
+    $.post(
+        "@Url.Action("GetBanWei", "Grade")",
+        { "id": 1208203301 },
+        function (data) {
+            $('#Js_Study_RightBigDiv').html(data);
+        });
+    function GetBanwei() {
+        $.post(
+            "@Url.Action("GetBanWei", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+    function GetTeacher() {
+        $.post(
+            "@Url.Action("GetTeacher", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+    function GetClassmate(){
+        $.post(
+            "@Url.Action("GetClassmate", "Grade")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
+            });
+    }
+</script>
+}
 
 <div class="navigation_centre">
     <div class="navigation_centre_left">
-        <div>查看班委</div>
-        <div>任课老师</div>
+        <div class="navigation_menu_bg" onclick="GetBanwei()">查看班委</div>
+        <div onclick="GetTeacher()">任课老师</div>
         <div>课程资料</div>
-        <div>我的同学</div>
+        <div onclick="GetClassmate()">我的同学</div>
     </div>
-    <div class="navigation_centre_right">2</div>
+    <div class="navigation_centre_right" id="Js_Study_RightBigDiv">
+
+    </div>
 </div>

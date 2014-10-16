@@ -142,12 +142,12 @@
     </Compile>
     <Compile Include="Models\DetailsClass.cs" />
     <Compile Include="Models\HomeClass.cs" />
-    <Compile Include="Models\PeopleImage.cs" />
     <Compile Include="Models\StudyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\demo.css" />
+    <Content Include="Content\CSS\GradeCss.css" />
     <Content Include="Content\CSS\HomeCss.css" />
     <Content Include="Content\CSS\StuClaNewHud.css" />
     <Content Include="Content\CSS\StudyCss.css" />
@@ -241,6 +241,7 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\page_bg.png" />
     <Content Include="Images\page_logo.png" />
+    <Content Include="Images\photo_cover1.png" />
     <Content Include="Images\stu_page_logo.png" />
     <Content Include="Images\sys_message_ico.png" />
     <Content Include="Images\teacher.png" />
@@ -263,7 +264,7 @@
     <Content Include="Picture\ec0ac3d2664b33e8872992346c8eb94e.gif" />
     <Content Include="Picture\f7f787164d5fee9a7e8b21920a2a569c.gif" />
     <Content Include="Picture\f96f211537671ad407f4b2643ab577b3.gif" />
-    <Content Include="Picture\iamge9.gif" />
+    <Content Include="Picture\image9.gif" />
     <Content Include="Picture\image1.gif" />
     <Content Include="Picture\image10.gif" />
     <Content Include="Picture\image11.gif" />
@@ -323,12 +324,13 @@
     <Content Include="Views\Home\GetNotify.cshtml" />
     <Content Include="Views\Home\GetMyImages.cshtml" />
     <Content Include="Views\Home\GetShareImages.cshtml" />
-    <Content Include="Views\Home\GetTeacherImages.cshtml" />
     <Content Include="Views\Study\GetHomeWork.cshtml" />
     <Content Include="Views\Study\GetTimeTable.cshtml" />
     <Content Include="Views\Study\GetMyVacation.cshtml" />
     <Content Include="Views\Study\Details_HomeWork.cshtml" />
     <Content Include="Views\Study\Details_Vacation.cshtml" />
+    <Content Include="Views\Home\GetPeople.cshtml" />
+    <Content Include="Views\Grade\GetPeopleInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

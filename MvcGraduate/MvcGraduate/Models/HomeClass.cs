@@ -82,21 +82,21 @@ namespace MvcGraduate.Models
                 return null;
             return q;
         }
-        public IEnumerable<PeopleImage> GetTeacherImages(int id)
+        public IEnumerable<Teachers> GetTeacher(int id)
         {
             //找到班级
             var grade = from c in db.Students
-                where c.ID == id 
-                select c.GradeID;
+                        where c.ID == id
+                        select c.GradeID;
             //找到老师
             var q = from c in db.Grades_Teachers
-                where c.GradeID == grade.First()
-                select new PeopleImage{ Name=c.Teachers.Name, Duty=c.Teachers.Duty,Picture=c.Teachers.Picture};
+                    where c.GradeID == grade.First()
+                    select c.Teachers;
             if (!q.Any())
                 return null;
             return q;
         }
-        public IEnumerable<PeopleImage> GetBanWeiImages(int id)
+        public IEnumerable<Students> GetBanWei(int id)
         {
             //找到班级
             var grade = from c in db.Students
@@ -104,11 +104,25 @@ namespace MvcGraduate.Models
                 select c.GradeID;
             //找到班委
             var q = from c in db.Students
-                where c.GradeID == grade.First() && c.Duties!=null && c.Duties!=""
-                select new PeopleImage {Name = c.Name, Duty = c.Duties, Picture = c.Picture};
+                    where c.GradeID == grade.First() && c.Duty != null && c.Duty != ""
+                    select c;
             if (!q.Any())
                 return null;
             return q;
         }  
+        public IEnumerable<Students> GetClassmate(int id)
+        {
+            //找到班级
+            var grade = from c in db.Students
+                        where c.ID == id
+                        select c.GradeID;
+            //找到同学
+            var q = from c in db.Students
+                    where c.GradeID == grade.First()
+                    select c;
+            if (!q.Any())
+                return null;
+            return q;
+        }
     }
 }

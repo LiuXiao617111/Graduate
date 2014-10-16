@@ -1,12 +1,12 @@
-﻿/*右边的表格*/			
+﻿/*右边的表格*/	
+ul {
+	list-style: none;
+}		
 .frame_main {
 	width: 878px;
 	height: 680px;
 	background: #FFFFFF;
 }
-	.frame_main ul {
-		list-style: none;
-	}
 	    .frame_title_line {
 		    height: 60px;
 		    margin-bottom: 15px;

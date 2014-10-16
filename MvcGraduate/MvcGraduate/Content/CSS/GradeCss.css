@@ -1,0 +1,57 @@
+﻿/*老师或者班干的信息和图片*/
+.frame_photo_div {
+    width: 870px;
+    overflow: hidden;
+}
+
+.frame_photo_block {
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin: 0 30px 45px 50px;
+}
+
+.PeopleDetails .edu_img {
+    position: relative;
+    z-index: 5;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    width: 130px;
+    height: 130px;
+}
+
+.PeopleDetails .des {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    top: -130px;
+    left: 0px;
+    z-index: 6;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.PeopleDetails .des2 {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: -130px;
+    left: 0px;
+    background-repeat: repeat;
+}
+
+.PeopleDetails .course {
+    position: absolute;
+    top: 103px;
+    font-size: 14px;
+    line-height: 27px;
+    text-align: center;
+    background: url(../../Images/photo_cover1.png);
+    background-repeat: repeat;
+    color: #FFFFFF;
+    height: 27px;
+    width: 130px;
+    overflow: hidden;
+}

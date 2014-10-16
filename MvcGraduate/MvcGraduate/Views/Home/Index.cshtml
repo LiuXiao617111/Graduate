@@ -47,7 +47,7 @@
                 $('#JS_TeacherHomeDiv').html(data);
             });
         $.post(
-            "@Url.Action("GetBanWeiImages", "Home")",
+            "@Url.Action("GetBanWei", "Home")",
             { "id": 1208203301 },
             function (data) {
                 $('#JS_BanWeiHomeDiv').html(data);
