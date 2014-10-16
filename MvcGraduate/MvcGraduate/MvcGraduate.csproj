@@ -140,6 +140,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\DetailsClass.cs" />
     <Compile Include="Models\HomeClass.cs" />
     <Compile Include="Models\PeopleImage.cs" />
     <Compile Include="Models\StudyClass.cs" />
@@ -325,6 +326,9 @@
     <Content Include="Views\Home\GetTeacherImages.cshtml" />
     <Content Include="Views\Study\GetHomeWork.cshtml" />
     <Content Include="Views\Study\GetTimeTable.cshtml" />
+    <Content Include="Views\Study\GetMyVacation.cshtml" />
+    <Content Include="Views\Study\Details_HomeWork.cshtml" />
+    <Content Include="Views\Study\Details_Vacation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

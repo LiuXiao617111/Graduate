@@ -8,20 +8,44 @@
     @Scripts.Render("~/bundles/weiyafei")
     @Scripts.Render("~/bundles/myJs")
     <script>
-        //填充分享的文章
         $.post(
             "@Url.Action("GetHomeWork", "Study")",
             { "id": 1208203301 },
             function(data) {
                 $('#Js_Study_RightBigDiv').html(data);
+        });
+        //填充分享的文章
+        function GetHomeWork() {
+            $.post(
+                "@Url.Action("GetHomeWork", "Study")",
+            { "id": 1208203301 },
+            function (data) {
+                $('#Js_Study_RightBigDiv').html(data);
             });
+        }
+        function GetTimeTable() {
+            $.post(
+                "@Url.Action("GetTimeTable", "Study")",
+                    { "id": 1208203301 },
+                    function(data) {
+                        $('#Js_Study_RightBigDiv').html(data);
+                    });
+        }
+        function GetMyVacation() {
+            $.post(
+                "@Url.Action("GetMyVacation", "Study")",
+                { "id": 1208203301 },
+                function (data) {
+                    $('#Js_Study_RightBigDiv').html(data);
+                });
+        }
     </script>
 }
         <div class="navigation_centre">
             <div class="navigation_centre_left">
-                <div class="navigation_menu_bg">家庭作业</div>
-                <div>我的课程</div>
-                <div>我的请假</div>
+                <div class="navigation_menu_bg" onclick="GetHomeWork()">家庭作业</div>
+                <div onclick="GetTimeTable()">我的课程</div>
+                <div onclick="GetMyVacation()">我的请假</div>
                 <div>实践活动</div>
                 <div>成绩查询</div>
                 <div>学分查询</div>

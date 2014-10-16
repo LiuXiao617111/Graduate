@@ -29,5 +29,14 @@ namespace MvcGraduate.Models
                 return null;
             return q;
         }
+        public IEnumerable<Vacation> GetMyVacation(int id)
+        {
+            var q = from c in db.Vacation
+                    where c.PeopleID == id
+                    select c;
+            if (!q.Any())
+                return null;
+            return q;
+        }
     }
 }

@@ -42,9 +42,6 @@ namespace MvcGraduate.Models
     partial void InsertGrades_Teachers(Grades_Teachers instance);
     partial void UpdateGrades_Teachers(Grades_Teachers instance);
     partial void DeleteGrades_Teachers(Grades_Teachers instance);
-    partial void InsertHomeWork(HomeWork instance);
-    partial void UpdateHomeWork(HomeWork instance);
-    partial void DeleteHomeWork(HomeWork instance);
     partial void InsertImages(Images instance);
     partial void UpdateImages(Images instance);
     partial void DeleteImages(Images instance);
@@ -66,9 +63,6 @@ namespace MvcGraduate.Models
     partial void InsertSubjectMaterial(SubjectMaterial instance);
     partial void UpdateSubjectMaterial(SubjectMaterial instance);
     partial void DeleteSubjectMaterial(SubjectMaterial instance);
-    partial void InsertVacation(Vacation instance);
-    partial void UpdateVacation(Vacation instance);
-    partial void DeleteVacation(Vacation instance);
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
@@ -84,6 +78,12 @@ namespace MvcGraduate.Models
     partial void InsertTimeTable(TimeTable instance);
     partial void UpdateTimeTable(TimeTable instance);
     partial void DeleteTimeTable(TimeTable instance);
+    partial void InsertHomeWork(HomeWork instance);
+    partial void UpdateHomeWork(HomeWork instance);
+    partial void DeleteHomeWork(HomeWork instance);
+    partial void InsertVacation(Vacation instance);
+    partial void UpdateVacation(Vacation instance);
+    partial void DeleteVacation(Vacation instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -148,14 +148,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<HomeWork> HomeWork
-		{
-			get
-			{
-				return this.GetTable<HomeWork>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Images> Images
 		{
 			get
@@ -212,14 +204,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Vacation> Vacation
-		{
-			get
-			{
-				return this.GetTable<Vacation>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Article> Article
 		{
 			get
@@ -257,6 +241,22 @@ namespace MvcGraduate.Models
 			get
 			{
 				return this.GetTable<TimeTable>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HomeWork> HomeWork
+		{
+			get
+			{
+				return this.GetTable<HomeWork>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vacation> Vacation
+		{
+			get
+			{
+				return this.GetTable<Vacation>();
 			}
 		}
 	}
@@ -919,277 +919,6 @@ namespace MvcGraduate.Models
 						this._TeacherID = default(int);
 					}
 					this.SendPropertyChanged("Teachers");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HomeWork")]
-	public partial class HomeWork : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _StudentID;
-		
-		private string _Subject;
-		
-		private string _Title;
-		
-		private System.Nullable<System.DateTime> _PublishTime;
-		
-		private string _State;
-		
-		private System.Nullable<int> _Score;
-		
-		private string _Appendix;
-		
-		private EntityRef<Students> _Students;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnStudentIDChanging(int value);
-    partial void OnStudentIDChanged();
-    partial void OnSubjectChanging(string value);
-    partial void OnSubjectChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnPublishTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnPublishTimeChanged();
-    partial void OnStateChanging(string value);
-    partial void OnStateChanged();
-    partial void OnScoreChanging(System.Nullable<int> value);
-    partial void OnScoreChanged();
-    partial void OnAppendixChanging(string value);
-    partial void OnAppendixChanged();
-    #endregion
-		
-		public HomeWork()
-		{
-			this._Students = default(EntityRef<Students>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
-		public int StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					if (this._Students.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnStudentIDChanging(value);
-					this.SendPropertyChanging();
-					this._StudentID = value;
-					this.SendPropertyChanged("StudentID");
-					this.OnStudentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="NChar(10)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this.OnSubjectChanging(value);
-					this.SendPropertyChanging();
-					this._Subject = value;
-					this.SendPropertyChanged("Subject");
-					this.OnSubjectChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(30)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishTime", DbType="Date")]
-		public System.Nullable<System.DateTime> PublishTime
-		{
-			get
-			{
-				return this._PublishTime;
-			}
-			set
-			{
-				if ((this._PublishTime != value))
-				{
-					this.OnPublishTimeChanging(value);
-					this.SendPropertyChanging();
-					this._PublishTime = value;
-					this.SendPropertyChanged("PublishTime");
-					this.OnPublishTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NChar(10)")]
-		public string State
-		{
-			get
-			{
-				return this._State;
-			}
-			set
-			{
-				if ((this._State != value))
-				{
-					this.OnStateChanging(value);
-					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Score", DbType="Int")]
-		public System.Nullable<int> Score
-		{
-			get
-			{
-				return this._Score;
-			}
-			set
-			{
-				if ((this._Score != value))
-				{
-					this.OnScoreChanging(value);
-					this.SendPropertyChanging();
-					this._Score = value;
-					this.SendPropertyChanged("Score");
-					this.OnScoreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
-		public string Appendix
-		{
-			get
-			{
-				return this._Appendix;
-			}
-			set
-			{
-				if ((this._Appendix != value))
-				{
-					this.OnAppendixChanging(value);
-					this.SendPropertyChanging();
-					this._Appendix = value;
-					this.SendPropertyChanged("Appendix");
-					this.OnAppendixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_HomeWork", Storage="_Students", ThisKey="StudentID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.HomeWork.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.HomeWork.Add(this);
-						this._StudentID = value.ID;
-					}
-					else
-					{
-						this._StudentID = default(int);
-					}
-					this.SendPropertyChanged("Students");
 				}
 			}
 		}
@@ -2708,318 +2437,6 @@ namespace MvcGraduate.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vacation")]
-	public partial class Vacation : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _PeopleID;
-		
-		private string _Reason;
-		
-		private System.Nullable<System.DateTime> _StartTime;
-		
-		private System.Nullable<System.DateTime> _EndTime;
-		
-		private int _VacationTypeID;
-		
-		private string _State;
-		
-		private string _Appendix;
-		
-		private EntityRef<VacationType> _VacationType;
-		
-		private EntityRef<Students> _Students;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnPeopleIDChanging(int value);
-    partial void OnPeopleIDChanged();
-    partial void OnReasonChanging(string value);
-    partial void OnReasonChanged();
-    partial void OnStartTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnStartTimeChanged();
-    partial void OnEndTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnEndTimeChanged();
-    partial void OnVacationTypeIDChanging(int value);
-    partial void OnVacationTypeIDChanged();
-    partial void OnStateChanging(string value);
-    partial void OnStateChanged();
-    partial void OnAppendixChanging(string value);
-    partial void OnAppendixChanged();
-    #endregion
-		
-		public Vacation()
-		{
-			this._VacationType = default(EntityRef<VacationType>);
-			this._Students = default(EntityRef<Students>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PeopleID", DbType="Int NOT NULL")]
-		public int PeopleID
-		{
-			get
-			{
-				return this._PeopleID;
-			}
-			set
-			{
-				if ((this._PeopleID != value))
-				{
-					if (this._Students.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPeopleIDChanging(value);
-					this.SendPropertyChanging();
-					this._PeopleID = value;
-					this.SendPropertyChanged("PeopleID");
-					this.OnPeopleIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reason", DbType="NChar(50)")]
-		public string Reason
-		{
-			get
-			{
-				return this._Reason;
-			}
-			set
-			{
-				if ((this._Reason != value))
-				{
-					this.OnReasonChanging(value);
-					this.SendPropertyChanging();
-					this._Reason = value;
-					this.SendPropertyChanged("Reason");
-					this.OnReasonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Date")]
-		public System.Nullable<System.DateTime> StartTime
-		{
-			get
-			{
-				return this._StartTime;
-			}
-			set
-			{
-				if ((this._StartTime != value))
-				{
-					this.OnStartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._StartTime = value;
-					this.SendPropertyChanged("StartTime");
-					this.OnStartTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Date")]
-		public System.Nullable<System.DateTime> EndTime
-		{
-			get
-			{
-				return this._EndTime;
-			}
-			set
-			{
-				if ((this._EndTime != value))
-				{
-					this.OnEndTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndTime = value;
-					this.SendPropertyChanged("EndTime");
-					this.OnEndTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationTypeID", DbType="Int NOT NULL")]
-		public int VacationTypeID
-		{
-			get
-			{
-				return this._VacationTypeID;
-			}
-			set
-			{
-				if ((this._VacationTypeID != value))
-				{
-					if (this._VacationType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnVacationTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._VacationTypeID = value;
-					this.SendPropertyChanged("VacationTypeID");
-					this.OnVacationTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NChar(10)")]
-		public string State
-		{
-			get
-			{
-				return this._State;
-			}
-			set
-			{
-				if ((this._State != value))
-				{
-					this.OnStateChanging(value);
-					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
-		public string Appendix
-		{
-			get
-			{
-				return this._Appendix;
-			}
-			set
-			{
-				if ((this._Appendix != value))
-				{
-					this.OnAppendixChanging(value);
-					this.SendPropertyChanging();
-					this._Appendix = value;
-					this.SendPropertyChanged("Appendix");
-					this.OnAppendixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacationType_Vacation", Storage="_VacationType", ThisKey="VacationTypeID", OtherKey="ID", IsForeignKey=true)]
-		public VacationType VacationType
-		{
-			get
-			{
-				return this._VacationType.Entity;
-			}
-			set
-			{
-				VacationType previousValue = this._VacationType.Entity;
-				if (((previousValue != value) 
-							|| (this._VacationType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._VacationType.Entity = null;
-						previousValue.Vacation.Remove(this);
-					}
-					this._VacationType.Entity = value;
-					if ((value != null))
-					{
-						value.Vacation.Add(this);
-						this._VacationTypeID = value.ID;
-					}
-					else
-					{
-						this._VacationTypeID = default(int);
-					}
-					this.SendPropertyChanged("VacationType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Vacation", Storage="_Students", ThisKey="PeopleID", OtherKey="ID", IsForeignKey=true)]
-		public Students Students
-		{
-			get
-			{
-				return this._Students.Entity;
-			}
-			set
-			{
-				Students previousValue = this._Students.Entity;
-				if (((previousValue != value) 
-							|| (this._Students.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Students.Entity = null;
-						previousValue.Vacation.Remove(this);
-					}
-					this._Students.Entity = value;
-					if ((value != null))
-					{
-						value.Vacation.Add(this);
-						this._PeopleID = value.ID;
-					}
-					else
-					{
-						this._PeopleID = default(int);
-					}
-					this.SendPropertyChanged("Students");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Article")]
 	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3293,8 +2710,6 @@ namespace MvcGraduate.Models
 		
 		private string _Picture;
 		
-		private EntitySet<HomeWork> _HomeWork;
-		
 		private EntitySet<Images> _Images;
 		
 		private EntitySet<Notify> _Notify;
@@ -3309,11 +2724,13 @@ namespace MvcGraduate.Models
 		
 		private EntitySet<SubjectMaterial> _SubjectMaterial;
 		
-		private EntitySet<Vacation> _Vacation;
-		
 		private EntitySet<Article> _Article;
 		
 		private EntitySet<Questions> _Questions;
+		
+		private EntitySet<HomeWork> _HomeWork;
+		
+		private EntitySet<Vacation> _Vacation;
 		
 		private EntityRef<Grade> _Grade;
 		
@@ -3341,7 +2758,6 @@ namespace MvcGraduate.Models
 		
 		public Students()
 		{
-			this._HomeWork = new EntitySet<HomeWork>(new Action<HomeWork>(this.attach_HomeWork), new Action<HomeWork>(this.detach_HomeWork));
 			this._Images = new EntitySet<Images>(new Action<Images>(this.attach_Images), new Action<Images>(this.detach_Images));
 			this._Notify = new EntitySet<Notify>(new Action<Notify>(this.attach_Notify), new Action<Notify>(this.detach_Notify));
 			this._Notify_People = new EntitySet<Notify_People>(new Action<Notify_People>(this.attach_Notify_People), new Action<Notify_People>(this.detach_Notify_People));
@@ -3349,9 +2765,10 @@ namespace MvcGraduate.Models
 			this._Share_Article = new EntitySet<Share_Article>(new Action<Share_Article>(this.attach_Share_Article), new Action<Share_Article>(this.detach_Share_Article));
 			this._Share_Images = new EntitySet<Share_Images>(new Action<Share_Images>(this.attach_Share_Images), new Action<Share_Images>(this.detach_Share_Images));
 			this._SubjectMaterial = new EntitySet<SubjectMaterial>(new Action<SubjectMaterial>(this.attach_SubjectMaterial), new Action<SubjectMaterial>(this.detach_SubjectMaterial));
-			this._Vacation = new EntitySet<Vacation>(new Action<Vacation>(this.attach_Vacation), new Action<Vacation>(this.detach_Vacation));
 			this._Article = new EntitySet<Article>(new Action<Article>(this.attach_Article), new Action<Article>(this.detach_Article));
 			this._Questions = new EntitySet<Questions>(new Action<Questions>(this.attach_Questions), new Action<Questions>(this.detach_Questions));
+			this._HomeWork = new EntitySet<HomeWork>(new Action<HomeWork>(this.attach_HomeWork), new Action<HomeWork>(this.detach_HomeWork));
+			this._Vacation = new EntitySet<Vacation>(new Action<Vacation>(this.attach_Vacation), new Action<Vacation>(this.detach_Vacation));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -3520,19 +2937,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_HomeWork", Storage="_HomeWork", ThisKey="ID", OtherKey="StudentID")]
-		public EntitySet<HomeWork> HomeWork
-		{
-			get
-			{
-				return this._HomeWork;
-			}
-			set
-			{
-				this._HomeWork.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Images", Storage="_Images", ThisKey="ID", OtherKey="OwnerID")]
 		public EntitySet<Images> Images
 		{
@@ -3640,19 +3044,6 @@ namespace MvcGraduate.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Vacation", Storage="_Vacation", ThisKey="ID", OtherKey="PeopleID")]
-		public EntitySet<Vacation> Vacation
-		{
-			get
-			{
-				return this._Vacation;
-			}
-			set
-			{
-				this._Vacation.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Article", Storage="_Article", ThisKey="ID", OtherKey="WritingID")]
 		public EntitySet<Article> Article
 		{
@@ -3676,6 +3067,32 @@ namespace MvcGraduate.Models
 			set
 			{
 				this._Questions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_HomeWork", Storage="_HomeWork", ThisKey="ID", OtherKey="StudentID")]
+		public EntitySet<HomeWork> HomeWork
+		{
+			get
+			{
+				return this._HomeWork;
+			}
+			set
+			{
+				this._HomeWork.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Vacation", Storage="_Vacation", ThisKey="ID", OtherKey="PeopleID")]
+		public EntitySet<Vacation> Vacation
+		{
+			get
+			{
+				return this._Vacation;
+			}
+			set
+			{
+				this._Vacation.Assign(value);
 			}
 		}
 		
@@ -3731,18 +3148,6 @@ namespace MvcGraduate.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_HomeWork(HomeWork entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = this;
-		}
-		
-		private void detach_HomeWork(HomeWork entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = null;
 		}
 		
 		private void attach_Images(Images entity)
@@ -3817,18 +3222,6 @@ namespace MvcGraduate.Models
 			entity.Students = null;
 		}
 		
-		private void attach_Vacation(Vacation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = this;
-		}
-		
-		private void detach_Vacation(Vacation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Students = null;
-		}
-		
 		private void attach_Article(Article entity)
 		{
 			this.SendPropertyChanging();
@@ -3848,6 +3241,30 @@ namespace MvcGraduate.Models
 		}
 		
 		private void detach_Questions(Questions entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_HomeWork(HomeWork entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_HomeWork(HomeWork entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = null;
+		}
+		
+		private void attach_Vacation(Vacation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Students = this;
+		}
+		
+		private void detach_Vacation(Vacation entity)
 		{
 			this.SendPropertyChanging();
 			entity.Students = null;
@@ -4653,6 +4070,661 @@ namespace MvcGraduate.Models
 						this._GradeID = default(int);
 					}
 					this.SendPropertyChanged("Grade");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HomeWork")]
+	public partial class HomeWork : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _StudentID;
+		
+		private string _Subject;
+		
+		private string _Title;
+		
+		private System.Nullable<System.DateTime> _PublishTime;
+		
+		private string _State;
+		
+		private System.Nullable<int> _Score;
+		
+		private string _Appendix;
+		
+		private string _Contents;
+		
+		private string _Comment;
+		
+		private EntityRef<Students> _Students;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnStudentIDChanging(int value);
+    partial void OnStudentIDChanged();
+    partial void OnSubjectChanging(string value);
+    partial void OnSubjectChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnPublishTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnPublishTimeChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnScoreChanging(System.Nullable<int> value);
+    partial void OnScoreChanged();
+    partial void OnAppendixChanging(string value);
+    partial void OnAppendixChanged();
+    partial void OnContentsChanging(string value);
+    partial void OnContentsChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    #endregion
+		
+		public HomeWork()
+		{
+			this._Students = default(EntityRef<Students>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subject", DbType="NChar(10)")]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this.OnSubjectChanging(value);
+					this.SendPropertyChanging();
+					this._Subject = value;
+					this.SendPropertyChanged("Subject");
+					this.OnSubjectChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(30)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishTime", DbType="Date")]
+		public System.Nullable<System.DateTime> PublishTime
+		{
+			get
+			{
+				return this._PublishTime;
+			}
+			set
+			{
+				if ((this._PublishTime != value))
+				{
+					this.OnPublishTimeChanging(value);
+					this.SendPropertyChanging();
+					this._PublishTime = value;
+					this.SendPropertyChanged("PublishTime");
+					this.OnPublishTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NChar(10)")]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Score", DbType="Int")]
+		public System.Nullable<int> Score
+		{
+			get
+			{
+				return this._Score;
+			}
+			set
+			{
+				if ((this._Score != value))
+				{
+					this.OnScoreChanging(value);
+					this.SendPropertyChanging();
+					this._Score = value;
+					this.SendPropertyChanged("Score");
+					this.OnScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
+		public string Appendix
+		{
+			get
+			{
+				return this._Appendix;
+			}
+			set
+			{
+				if ((this._Appendix != value))
+				{
+					this.OnAppendixChanging(value);
+					this.SendPropertyChanging();
+					this._Appendix = value;
+					this.SendPropertyChanged("Appendix");
+					this.OnAppendixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(500)")]
+		public string Contents
+		{
+			get
+			{
+				return this._Contents;
+			}
+			set
+			{
+				if ((this._Contents != value))
+				{
+					this.OnContentsChanging(value);
+					this.SendPropertyChanging();
+					this._Contents = value;
+					this.SendPropertyChanged("Contents");
+					this.OnContentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(100)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_HomeWork", Storage="_Students", ThisKey="StudentID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.HomeWork.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.HomeWork.Add(this);
+						this._StudentID = value.ID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vacation")]
+	public partial class Vacation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _PeopleID;
+		
+		private string _Reason;
+		
+		private System.Nullable<System.DateTime> _ApplyTime;
+		
+		private System.Nullable<System.DateTime> _StartTime;
+		
+		private System.Nullable<System.DateTime> _EndTime;
+		
+		private int _VacationTypeID;
+		
+		private string _State;
+		
+		private string _Appendix;
+		
+		private EntityRef<Students> _Students;
+		
+		private EntityRef<VacationType> _VacationType;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPeopleIDChanging(int value);
+    partial void OnPeopleIDChanged();
+    partial void OnReasonChanging(string value);
+    partial void OnReasonChanged();
+    partial void OnApplyTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnApplyTimeChanged();
+    partial void OnStartTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartTimeChanged();
+    partial void OnEndTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndTimeChanged();
+    partial void OnVacationTypeIDChanging(int value);
+    partial void OnVacationTypeIDChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnAppendixChanging(string value);
+    partial void OnAppendixChanged();
+    #endregion
+		
+		public Vacation()
+		{
+			this._Students = default(EntityRef<Students>);
+			this._VacationType = default(EntityRef<VacationType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PeopleID", DbType="Int NOT NULL")]
+		public int PeopleID
+		{
+			get
+			{
+				return this._PeopleID;
+			}
+			set
+			{
+				if ((this._PeopleID != value))
+				{
+					if (this._Students.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPeopleIDChanging(value);
+					this.SendPropertyChanging();
+					this._PeopleID = value;
+					this.SendPropertyChanged("PeopleID");
+					this.OnPeopleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reason", DbType="NChar(50)")]
+		public string Reason
+		{
+			get
+			{
+				return this._Reason;
+			}
+			set
+			{
+				if ((this._Reason != value))
+				{
+					this.OnReasonChanging(value);
+					this.SendPropertyChanging();
+					this._Reason = value;
+					this.SendPropertyChanged("Reason");
+					this.OnReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplyTime", DbType="Date")]
+		public System.Nullable<System.DateTime> ApplyTime
+		{
+			get
+			{
+				return this._ApplyTime;
+			}
+			set
+			{
+				if ((this._ApplyTime != value))
+				{
+					this.OnApplyTimeChanging(value);
+					this.SendPropertyChanging();
+					this._ApplyTime = value;
+					this.SendPropertyChanged("ApplyTime");
+					this.OnApplyTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Date")]
+		public System.Nullable<System.DateTime> StartTime
+		{
+			get
+			{
+				return this._StartTime;
+			}
+			set
+			{
+				if ((this._StartTime != value))
+				{
+					this.OnStartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._StartTime = value;
+					this.SendPropertyChanged("StartTime");
+					this.OnStartTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Date")]
+		public System.Nullable<System.DateTime> EndTime
+		{
+			get
+			{
+				return this._EndTime;
+			}
+			set
+			{
+				if ((this._EndTime != value))
+				{
+					this.OnEndTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndTime = value;
+					this.SendPropertyChanged("EndTime");
+					this.OnEndTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationTypeID", DbType="Int NOT NULL")]
+		public int VacationTypeID
+		{
+			get
+			{
+				return this._VacationTypeID;
+			}
+			set
+			{
+				if ((this._VacationTypeID != value))
+				{
+					if (this._VacationType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnVacationTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._VacationTypeID = value;
+					this.SendPropertyChanged("VacationTypeID");
+					this.OnVacationTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NChar(10)")]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appendix", DbType="NVarChar(50)")]
+		public string Appendix
+		{
+			get
+			{
+				return this._Appendix;
+			}
+			set
+			{
+				if ((this._Appendix != value))
+				{
+					this.OnAppendixChanging(value);
+					this.SendPropertyChanging();
+					this._Appendix = value;
+					this.SendPropertyChanged("Appendix");
+					this.OnAppendixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Students_Vacation", Storage="_Students", ThisKey="PeopleID", OtherKey="ID", IsForeignKey=true)]
+		public Students Students
+		{
+			get
+			{
+				return this._Students.Entity;
+			}
+			set
+			{
+				Students previousValue = this._Students.Entity;
+				if (((previousValue != value) 
+							|| (this._Students.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Students.Entity = null;
+						previousValue.Vacation.Remove(this);
+					}
+					this._Students.Entity = value;
+					if ((value != null))
+					{
+						value.Vacation.Add(this);
+						this._PeopleID = value.ID;
+					}
+					else
+					{
+						this._PeopleID = default(int);
+					}
+					this.SendPropertyChanged("Students");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VacationType_Vacation", Storage="_VacationType", ThisKey="VacationTypeID", OtherKey="ID", IsForeignKey=true)]
+		public VacationType VacationType
+		{
+			get
+			{
+				return this._VacationType.Entity;
+			}
+			set
+			{
+				VacationType previousValue = this._VacationType.Entity;
+				if (((previousValue != value) 
+							|| (this._VacationType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VacationType.Entity = null;
+						previousValue.Vacation.Remove(this);
+					}
+					this._VacationType.Entity = value;
+					if ((value != null))
+					{
+						value.Vacation.Add(this);
+						this._VacationTypeID = value.ID;
+					}
+					else
+					{
+						this._VacationTypeID = default(int);
+					}
+					this.SendPropertyChanged("VacationType");
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 ﻿<div class="frame_main">
     <ul>
         <li class="frame_title_line">
-            <div class="frame_title no_select">我的作业</div>
+            <div class="frame_title">我的作业</div>
         </li>
 
         <li class="detaile_line">
@@ -24,7 +24,7 @@
                                 <td>@item.PublishTime</td>
                                 <td>@item.State</td>
                                 <td>
-                                    <a href="javascript:;" onclick="showDetails('homework%2Fhomework_do','SCHOOL_YEAR,TERM,GRADE,CLASS,HOMEWORK_DETAIL,CREATE_TIME,CREATE_USER_NAME,CONTENT,SCORE,COMMENT','作业提交详情','10')">详情</a>
+                                    <a href="javascript:;" onclick="window.open('@Url.Action("Details_HomeWork", "Study",new {id= item.ID})', '', 'height=500,width=820,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=200,top=100,resizable=yes');">详情</a>
                                 </td>
                             </tr>
                         }

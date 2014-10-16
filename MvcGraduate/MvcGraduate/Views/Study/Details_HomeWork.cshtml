@@ -1,0 +1,46 @@
+﻿@model MvcGraduate.Models.HomeWork
+
+<fieldset>
+    <table>
+        <tr>
+            <td>年级</td>
+            <td>@Html.DisplayFor(model => model.Students.Grade.Faculty.Name)</td>
+        </tr>
+        <tr>
+            <td>班级</td>
+            <td>@Html.DisplayFor(model => model.Students.Grade.Name)</td>
+        </tr>
+        <tr>
+            <td>提交人</td>
+            <td>@Html.DisplayFor(model => model.Students.Name)</td>
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>@Html.DisplayFor(model => model.Subject)</td>
+        </tr>
+        <tr>
+            <td>标题</td>
+            <td>@Html.DisplayFor(model => model.Title)</td>
+        </tr>
+        <tr>
+            <td>提交时间</td>
+            <td>@Html.DisplayFor(model => model.PublishTime)</td>
+        </tr>
+        <tr>
+            <td>提交内容</td>
+            <td>@Html.DisplayFor(model => model.Contents)</td>
+        </tr>
+        <tr>
+            <td>评分</td>
+            <td>@Html.DisplayFor(model => model.Score)</td>
+        </tr>
+        <tr>
+            <td>评语</td>        
+            <td>@Html.DisplayFor(model => model.Comment)</td>                                                                                                                              
+        </tr>
+        <tr>
+            <td>附件</td>
+            <td>@Html.DisplayFor(model => model.Appendix)</td>
+        </tr>
+    </table>
+</fieldset>

@@ -29,4 +29,3 @@ F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.WebPages.Deployment.xml
 F:\Graduate\MvcGraduate\MvcGraduate\bin\System.Web.WebPages.Razor.xml
 F:\Graduate\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.dll
 F:\Graduate\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.pdb
-F:\Graduate\MvcGraduate\MvcGraduate\obj\Debug\MvcGraduate.csprojResolveAssemblyReference.cache
